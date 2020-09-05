@@ -21,7 +21,7 @@ echo "Machine: "$MACHINE
 
 asv run NEW
 
-git add results/$MACHINE
+git add results
 git commit -m "Nightly ASV results ($MACHINE)"
 
 git push origin master

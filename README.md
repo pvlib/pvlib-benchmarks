@@ -23,6 +23,12 @@ Benchmark data for pvlib-python
    - `git config user.name 'pvlib-benchmarker'`
    - `git config user.email 'pvlib.benchmarker@gmail.com'`
 
+1) Also configure the remote URL to use ssh so pushing results doesn't require
+   you to enter your username/password:
+   - `git remote set-url origin git+ssh://git@github.com/pvlib-benchmarker/pvlib-benchmarks.git`
+
+1) Create an ssh key, register it with `ssh-add ...`, and configure it with GitHub.
+
 1) Set the machine information:
    - `asv machine`
 
