@@ -1,0 +1,9 @@
+{
+    "arch": "x86_64",
+    "cpu": "Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz",
+    "machine": "carrots-deluxe",
+    "num_cpu": "4",
+    "os": "Linux 4.19.0-6-amd64",
+    "ram": "7845344",
+    "version": 1
+}
