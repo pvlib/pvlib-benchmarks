@@ -191,38 +191,6 @@
         "version": "f440de0b3fdb1a65ab833e7c8060f1ef019af5ff8c979e098cc668973d1720eb",
         "warmup_time": -1
     },
-    "location.TimeSuite.time_location_get_sun_rise_set_transit_pyephem": {
-        "code": "class TimeSuite:\n    def time_location_get_sun_rise_set_transit_pyephem(self):\n        self.location.get_sun_rise_set_transit(times=self.days,\n                                               method='pyephem')\n\n    def setup(self):\n        self.location = pvlib.location.Location(32, -110, altitude=700,\n                                                tz='Etc/GMT+7')\n        self.times = pd.date_range(start='20180601', freq='3min',\n                                   periods=1440)\n        self.days = pd.date_range(start='20180101', freq='d', periods=365,\n                                  tz=self.location.tz)\n        self.solar_position = self.location.get_solarposition(self.times)",
-        "min_run_count": 2,
-        "name": "location.TimeSuite.time_location_get_sun_rise_set_transit_pyephem",
-        "number": 0,
-        "param_names": [],
-        "params": [],
-        "processes": 2,
-        "repeat": 0,
-        "sample_time": 0.01,
-        "timeout": 60.0,
-        "type": "time",
-        "unit": "seconds",
-        "version": "d85ac70306cccd8264d972f2983976f6cc187b4d295be3241d0d8e28a21da9f8",
-        "warmup_time": -1
-    },
-    "location.TimeSuite.time_location_get_sun_rise_set_transit_spa": {
-        "code": "class TimeSuite:\n    def time_location_get_sun_rise_set_transit_spa(self):\n        self.location.get_sun_rise_set_transit(times=self.days,\n                                               method='spa')\n\n    def setup(self):\n        self.location = pvlib.location.Location(32, -110, altitude=700,\n                                                tz='Etc/GMT+7')\n        self.times = pd.date_range(start='20180601', freq='3min',\n                                   periods=1440)\n        self.days = pd.date_range(start='20180101', freq='d', periods=365,\n                                  tz=self.location.tz)\n        self.solar_position = self.location.get_solarposition(self.times)",
-        "min_run_count": 2,
-        "name": "location.TimeSuite.time_location_get_sun_rise_set_transit_spa",
-        "number": 0,
-        "param_names": [],
-        "params": [],
-        "processes": 2,
-        "repeat": 0,
-        "sample_time": 0.01,
-        "timeout": 60.0,
-        "type": "time",
-        "unit": "seconds",
-        "version": "c7662d38aefb843bc75f8f5f31e35eb206646825fe0ed7f68fde84657ec0a05d",
-        "warmup_time": -1
-    },
     "solarposition.TimeSuite.time_ephemeris": {
         "code": "class TimeSuite:\n    def time_ephemeris(self):\n        solarposition.ephemeris(self.times, self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
         "min_run_count": 2,
