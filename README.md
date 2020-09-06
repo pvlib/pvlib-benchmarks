@@ -51,4 +51,4 @@ The benchmark timings are hosted on this repo's
 
 1) Finally, enable the nightly job in whatever job scheduler you are using. A
    suitable starting point for a crontab entry might be:
-   - ```0 0 * * * $HOME/pvlib-benchmarks/cronjob.sh > $HOME/`date +\%Y-\%m-\%d`-cron.log 2>&1```
+   - ```0 0 * * * $HOME/logs/pvlib-benchmarks/cronjob.sh > $HOME/`date +\%Y-\%m-\%d`-cron.log 2>&1```
