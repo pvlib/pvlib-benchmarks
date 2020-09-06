@@ -1,7 +1,10 @@
 # pvlib-benchmarks
-Benchmark data for pvlib-python
+Benchmarking for [pvlib-python](https://github.com/pvlib/pvlib-python)
 
-## How to set up a new machine to run the pvlib benchmark suite
+The benchmark timings are hosted on this repo's
+[github pages](https://pvlib-benchmarker.github.io/pvlib-benchmarks/).
+
+## Setting up a new nightly runner
 
 1) Clone the pvlib-python github repository:
    - `git clone https://github.com/pvlib/pvlib-python.git`
@@ -22,12 +25,17 @@ Benchmark data for pvlib-python
 1) In the `pvlib-benchmarks` repo, set the git user info:
    - `git config user.name 'pvlib-benchmarker'`
    - `git config user.email 'pvlib.benchmarker@gmail.com'`
+   - Note: it seems like `asv gh-pages` ignores the repo-level configuration,
+     so it might be necessary to set these parameters globally (e.g. use
+     `git config --global user.name 'pvlib-benchmarker'`).
 
 1) Also configure the remote URL to use ssh so pushing results doesn't require
    you to enter your username/password:
    - `git remote set-url origin git+ssh://git@github.com/pvlib-benchmarker/pvlib-benchmarks.git`
 
 1) Create an ssh key, register it with `ssh-add ...`, and configure it with GitHub.
+   This is so the nightly job can push to GitHub without needing the user to
+   authenticate manually.
 
 1) Set the machine information:
    - `asv machine`
@@ -35,11 +43,12 @@ Benchmark data for pvlib-python
 1) Validate and build environments (may take a couple minutes to run):
    - `asv check`
 
-1) Do a dry benchmark run:
+1) Do a quick test run to verify that things seem to be working:
    - `asv dev`
 
-1) Establish a benchmark history (the nightly job will always run whatever
-   new commits haven't yet been run):
+1) Establish a benchmark history, for example:
    - `asv run v0.6.0..v0.7.2`
 
-1) Finally, enable the nightly job in whatever job scheduler you are using.
+1) Finally, enable the nightly job in whatever job scheduler you are using. A
+   suitable starting point for a crontab entry might be:
+   - ```0 0 * * * $HOME/pvlib-benchmarks/cronjob.sh > $HOME/logs/`date +\%Y-\%m-\%d`-cron.log 2>&1```
