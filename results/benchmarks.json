@@ -1,8 +1,8 @@
 {
-    "irradiance.TimeSuite.time_aoi": {
-        "code": "class TimeSuite:\n    def time_aoi(self):\n        irradiance.aoi(self.tilt, self.azimuth,\n                       self.solar_position.apparent_zenith,\n                       self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_aoi": {
+        "code": "class Irradiance:\n    def time_aoi(self):\n        irradiance.aoi(self.tilt, self.azimuth,\n                       self.solar_position.apparent_zenith,\n                       self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_aoi",
+        "name": "irradiance.Irradiance.time_aoi",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -12,13 +12,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "50965af4170b77711b9c314a5cbd5ef7f4726d5ee67d2921d91eed75e0f1f9b4",
+        "version": "3b647b188210e8908d09def8075125326e0be2c84475d1df5902049801bbce75",
         "warmup_time": -1
     },
-    "irradiance.TimeSuite.time_aoi_projection": {
-        "code": "class TimeSuite:\n    def time_aoi_projection(self):\n        irradiance.aoi(self.tilt, self.azimuth,\n                       self.solar_position.apparent_zenith,\n                       self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_aoi_projection": {
+        "code": "class Irradiance:\n    def time_aoi_projection(self):\n        irradiance.aoi(self.tilt, self.azimuth,\n                       self.solar_position.apparent_zenith,\n                       self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_aoi_projection",
+        "name": "irradiance.Irradiance.time_aoi_projection",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -28,13 +28,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "3de6c1879aac4d828a4a6f1a8e219860b96dc8c9d8ebe81810af62caee5f63b7",
+        "version": "690a2ec2cd12de23d1caa11032f4e1d395f3437aacf1da197333a6a414ef7abf",
         "warmup_time": -1
     },
-    "irradiance.TimeSuite.time_dirindex": {
-        "code": "class TimeSuite:\n    def time_dirindex(self):\n        irradiance.dirindex(self.clearsky_irradiance.ghi,\n                            self.clearsky_irradiance.ghi,\n                            self.clearsky_irradiance.dni,\n                            self.solar_position.apparent_zenith,\n                            self.times)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_dirindex": {
+        "code": "class Irradiance:\n    def time_dirindex(self):\n        irradiance.dirindex(self.clearsky_irradiance.ghi,\n                            self.clearsky_irradiance.ghi,\n                            self.clearsky_irradiance.dni,\n                            self.solar_position.apparent_zenith,\n                            self.times)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_dirindex",
+        "name": "irradiance.Irradiance.time_dirindex",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -44,13 +44,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "fa5d74f22cabd99f38270652def1a89ab651c04b807a5e7f5900c3306d1984e2",
+        "version": "be06adb7a48a40f97331e048b6a1de6f30d0d0f05e995ee0eb6cf5b7ae2d3827",
         "warmup_time": -1
     },
-    "irradiance.TimeSuite.time_dirint": {
-        "code": "class TimeSuite:\n    def time_dirint(self):\n        irradiance.dirint(self.clearsky_irradiance.ghi,\n                          self.solar_position.apparent_zenith,\n                          self.times)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_dirint": {
+        "code": "class Irradiance:\n    def time_dirint(self):\n        irradiance.dirint(self.clearsky_irradiance.ghi,\n                          self.solar_position.apparent_zenith,\n                          self.times)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_dirint",
+        "name": "irradiance.Irradiance.time_dirint",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -60,13 +60,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "78b49c7c69d2a905dd0c8198ae442d474ef8657a059c97125095a629baf3d92b",
+        "version": "3c5cf911e401536b0cb0b6262184730d1129d0978a2c7aba2384b463de97c893",
         "warmup_time": -1
     },
-    "irradiance.TimeSuite.time_disc": {
-        "code": "class TimeSuite:\n    def time_disc(self):\n        irradiance.disc(self.clearsky_irradiance.ghi,\n                        self.solar_position.apparent_zenith,\n                        self.times)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_disc": {
+        "code": "class Irradiance:\n    def time_disc(self):\n        irradiance.disc(self.clearsky_irradiance.ghi,\n                        self.solar_position.apparent_zenith,\n                        self.times)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_disc",
+        "name": "irradiance.Irradiance.time_disc",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -76,13 +76,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "9ad866653a5d1d13bc2047a224a2cdf0a0435201882da83a03e924138db776d4",
+        "version": "0d62ee79c3d5359dbbc332f1a6a3680914a81e73f7ae62cd2dafba15f05884e1",
         "warmup_time": -1
     },
-    "irradiance.TimeSuite.time_erbs": {
-        "code": "class TimeSuite:\n    def time_erbs(self):\n        irradiance.erbs(self.clearsky_irradiance.ghi,\n                        self.solar_position.apparent_zenith,\n                        self.times)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_erbs": {
+        "code": "class Irradiance:\n    def time_erbs(self):\n        irradiance.erbs(self.clearsky_irradiance.ghi,\n                        self.solar_position.apparent_zenith,\n                        self.times)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_erbs",
+        "name": "irradiance.Irradiance.time_erbs",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -92,13 +92,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "5941e5a1e183b9f8928346a117bc11a816a127584f4239dc7912b4f706d639d3",
+        "version": "6c160f7d30317eb7fa330b554cb3a4f1623fd7ea7709f772b4ed4d80f56ffa52",
         "warmup_time": -1
     },
-    "irradiance.TimeSuite.time_get_extra_radiation": {
-        "code": "class TimeSuite:\n    def time_get_extra_radiation(self):\n        irradiance.get_extra_radiation(self.days)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_get_extra_radiation": {
+        "code": "class Irradiance:\n    def time_get_extra_radiation(self):\n        irradiance.get_extra_radiation(self.days)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_get_extra_radiation",
+        "name": "irradiance.Irradiance.time_get_extra_radiation",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -108,13 +108,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "5e81a7bd20b140c57341ab396ade6d5b3dc924a58abd2050f8349f8f007acb34",
+        "version": "e18dbf6318c72698e6b07e752c186c475f4f80b3e7f64ea6a140d99ef62a6d90",
         "warmup_time": -1
     },
-    "irradiance.TimeSuite.time_get_ground_diffuse": {
-        "code": "class TimeSuite:\n    def time_get_ground_diffuse(self):\n        irradiance.get_ground_diffuse(self.tilt, self.clearsky_irradiance.ghi)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_get_ground_diffuse": {
+        "code": "class Irradiance:\n    def time_get_ground_diffuse(self):\n        irradiance.get_ground_diffuse(self.tilt, self.clearsky_irradiance.ghi)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_get_ground_diffuse",
+        "name": "irradiance.Irradiance.time_get_ground_diffuse",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -124,13 +124,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "8931595a6fee7a0e144ce1cbe63cf8148a3d014c2a211a4c73488789359c1efb",
+        "version": "432eb6d93dd3eb8dacafd8b7688332641ced5e38cef55be87aa059fc1602eb29",
         "warmup_time": -1
     },
-    "irradiance.TimeSuite.time_get_total_irradiance": {
-        "code": "class TimeSuite:\n    def time_get_total_irradiance(self):\n        irradiance.get_total_irradiance(self.tilt, self.azimuth,\n                                        self.solar_position.apparent_zenith,\n                                        self.solar_position.azimuth,\n                                        self.clearsky_irradiance.dni,\n                                        self.clearsky_irradiance.ghi,\n                                        self.clearsky_irradiance.dhi)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+    "irradiance.Irradiance.time_get_total_irradiance": {
+        "code": "class Irradiance:\n    def time_get_total_irradiance(self):\n        irradiance.get_total_irradiance(self.tilt, self.azimuth,\n                                        self.solar_position.apparent_zenith,\n                                        self.solar_position.azimuth,\n                                        self.clearsky_irradiance.dni,\n                                        self.clearsky_irradiance.ghi,\n                                        self.clearsky_irradiance.dhi)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
-        "name": "irradiance.TimeSuite.time_get_total_irradiance",
+        "name": "irradiance.Irradiance.time_get_total_irradiance",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -140,13 +140,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "30a79c4c9c67ca1f0b85f794cf19c2cb68ef51fdc8182397d3236e7b2a3483f1",
+        "version": "636a200318992ce212bde7aa680ebccd54a2c1558efb4b99e838ffe2a60f416b",
         "warmup_time": -1
     },
-    "location.TimeSuite.time_location_get_airmass": {
-        "code": "class TimeSuite:\n    def time_location_get_airmass(self):\n        self.location.get_airmass(solar_position=self.solar_position)\n\n    def setup(self):\n        self.location = pvlib.location.Location(32, -110, altitude=700,\n                                                tz='Etc/GMT+7')\n        self.times = pd.date_range(start='20180601', freq='3min',\n                                   periods=1440)\n        self.days = pd.date_range(start='20180101', freq='d', periods=365,\n                                  tz=self.location.tz)\n        self.solar_position = self.location.get_solarposition(self.times)",
+    "location.Location.time_location_get_airmass": {
+        "code": "class Location:\n    def time_location_get_airmass(self):\n        self.location.get_airmass(solar_position=self.solar_position)\n\n    def setup(self):\n        set_solar_position(self)",
         "min_run_count": 2,
-        "name": "location.TimeSuite.time_location_get_airmass",
+        "name": "location.Location.time_location_get_airmass",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -156,13 +156,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "896610ba2c4b111cf70e42ac4e9a71eef87f5ee4fb795926c229a0b09055789d",
+        "version": "588b69638c1a6ec9b5141d16209e9162dc74336f9013282de3dfbb462698b26e",
         "warmup_time": -1
     },
-    "location.TimeSuite.time_location_get_clearsky": {
-        "code": "class TimeSuite:\n    def time_location_get_clearsky(self):\n        self.location.get_clearsky(times=self.times,\n                                   solar_position=self.solar_position)\n\n    def setup(self):\n        self.location = pvlib.location.Location(32, -110, altitude=700,\n                                                tz='Etc/GMT+7')\n        self.times = pd.date_range(start='20180601', freq='3min',\n                                   periods=1440)\n        self.days = pd.date_range(start='20180101', freq='d', periods=365,\n                                  tz=self.location.tz)\n        self.solar_position = self.location.get_solarposition(self.times)",
+    "location.Location.time_location_get_clearsky": {
+        "code": "class Location:\n    def time_location_get_clearsky(self):\n        self.location.get_clearsky(times=self.times,\n                                   solar_position=self.solar_position)\n\n    def setup(self):\n        set_solar_position(self)",
         "min_run_count": 2,
-        "name": "location.TimeSuite.time_location_get_clearsky",
+        "name": "location.Location.time_location_get_clearsky",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -172,13 +172,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "7089fc94cfbb08e6ef45f59f9f65765d35e885fe53ab4b4b10fa64b29bea1a22",
+        "version": "f60edac83a9a6e3900900e8d8a2e857af67dbe5cba75871736e106899cd46a98",
         "warmup_time": -1
     },
-    "location.TimeSuite.time_location_get_solarposition": {
-        "code": "class TimeSuite:\n    def time_location_get_solarposition(self):\n        self.location.get_solarposition(times=self.times)\n\n    def setup(self):\n        self.location = pvlib.location.Location(32, -110, altitude=700,\n                                                tz='Etc/GMT+7')\n        self.times = pd.date_range(start='20180601', freq='3min',\n                                   periods=1440)\n        self.days = pd.date_range(start='20180101', freq='d', periods=365,\n                                  tz=self.location.tz)\n        self.solar_position = self.location.get_solarposition(self.times)",
+    "location.Location.time_location_get_solarposition": {
+        "code": "class Location:\n    def time_location_get_solarposition(self):\n        self.location.get_solarposition(times=self.times)\n\n    def setup(self):\n        set_solar_position(self)",
         "min_run_count": 2,
-        "name": "location.TimeSuite.time_location_get_solarposition",
+        "name": "location.Location.time_location_get_solarposition",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -188,13 +188,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "f440de0b3fdb1a65ab833e7c8060f1ef019af5ff8c979e098cc668973d1720eb",
+        "version": "8fd3e3632c37c96dbb3419fe7b7852e76694f95f716a076311276503d5145ba6",
         "warmup_time": -1
     },
-    "solarposition.TimeSuite.time_ephemeris": {
-        "code": "class TimeSuite:\n    def time_ephemeris(self):\n        solarposition.ephemeris(self.times, self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+    "location.Location_0_6_1.time_location_get_sun_rise_set_transit_pyephem": {
+        "code": "class Location_0_6_1:\n    def time_location_get_sun_rise_set_transit_pyephem(self):\n        self.location.get_sun_rise_set_transit(times=self.days,\n                                               method='pyephem')\n\n    def setup(self):\n        if parse_version(pvlib.__version__) < parse_version('0.6.1'):\n            raise NotImplementedError\n    \n        set_solar_position(self)",
         "min_run_count": 2,
-        "name": "solarposition.TimeSuite.time_ephemeris",
+        "name": "location.Location_0_6_1.time_location_get_sun_rise_set_transit_pyephem",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -204,13 +204,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "d720557975548221137d8479573475421266842842eb418904fe9aebfc36ff37",
+        "version": "a331c66d50a25e7a63ab7d62c34584dc03514385bd8b254cc0d01d6a148f1e2f",
         "warmup_time": -1
     },
-    "solarposition.TimeSuite.time_ephemeris_localized": {
-        "code": "class TimeSuite:\n    def time_ephemeris_localized(self):\n        solarposition.ephemeris(self.times_localized, self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+    "location.Location_0_6_1.time_location_get_sun_rise_set_transit_spa": {
+        "code": "class Location_0_6_1:\n    def time_location_get_sun_rise_set_transit_spa(self):\n        self.location.get_sun_rise_set_transit(times=self.days,\n                                               method='spa')\n\n    def setup(self):\n        if parse_version(pvlib.__version__) < parse_version('0.6.1'):\n            raise NotImplementedError\n    \n        set_solar_position(self)",
         "min_run_count": 2,
-        "name": "solarposition.TimeSuite.time_ephemeris_localized",
+        "name": "location.Location_0_6_1.time_location_get_sun_rise_set_transit_spa",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -220,13 +220,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "ec8291a048071446aed78a29bac9a0075431eafe0cd22b17bf5fc478abb4287a",
+        "version": "38ae64f4d0240fdcedf30f8287c01235d67a81d9493acac3a4c3338f5c602f35",
         "warmup_time": -1
     },
-    "solarposition.TimeSuite.time_nrel_earthsun_distance": {
-        "code": "class TimeSuite:\n    def time_nrel_earthsun_distance(self):\n        solarposition.nrel_earthsun_distance(self.times_localized)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+    "solarposition.SolarPosition.time_ephemeris": {
+        "code": "class SolarPosition:\n    def time_ephemeris(self):\n        solarposition.ephemeris(self.times, self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
         "min_run_count": 2,
-        "name": "solarposition.TimeSuite.time_nrel_earthsun_distance",
+        "name": "solarposition.SolarPosition.time_ephemeris",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -236,13 +236,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "a7afedbc2824ae6ab44f88964a7b0b305b3747945a62265c512d5eb325a42d14",
+        "version": "9e3f6f6b1f8e738855fea908c98dc18e5f77924ee4017e020e52143c1b999c8d",
         "warmup_time": -1
     },
-    "solarposition.TimeSuite.time_spa_python": {
-        "code": "class TimeSuite:\n    def time_spa_python(self):\n        solarposition.spa_python(self.times_localized[::5], self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+    "solarposition.SolarPosition.time_ephemeris_localized": {
+        "code": "class SolarPosition:\n    def time_ephemeris_localized(self):\n        solarposition.ephemeris(self.times_localized, self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
         "min_run_count": 2,
-        "name": "solarposition.TimeSuite.time_spa_python",
+        "name": "solarposition.SolarPosition.time_ephemeris_localized",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -252,13 +252,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "19a86b9c218f465e892dc2d8d9ae59458723627324f1b9c6f0cdd6f76c0edb82",
+        "version": "1b9a3b8eafa1f70b219ba2f297c9d3c5fdef7e30c485a57d8fa4d211ad419b2e",
         "warmup_time": -1
     },
-    "solarposition.TimeSuite.time_sun_rise_set_transit_spa": {
-        "code": "class TimeSuite:\n    def time_sun_rise_set_transit_spa(self):\n        sun_rise_set_transit_spa(self.times_localized[::30],\n                                 self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+    "solarposition.SolarPosition.time_nrel_earthsun_distance": {
+        "code": "class SolarPosition:\n    def time_nrel_earthsun_distance(self):\n        solarposition.nrel_earthsun_distance(self.times_localized)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
         "min_run_count": 2,
-        "name": "solarposition.TimeSuite.time_sun_rise_set_transit_spa",
+        "name": "solarposition.SolarPosition.time_nrel_earthsun_distance",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -268,13 +268,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "9ceddba550136d49b3aefc735bc9d3e512144ac2b5c62ffe82a974e08ff86a47",
+        "version": "b28d26f20b6616c96c64fa36988745a4e24f3002beffec86aa05888320cc0ee0",
         "warmup_time": -1
     },
-    "tracking.TimeSuite.time_singleaxis": {
-        "code": "class TimeSuite:\n    def time_singleaxis(self):\n        with np.errstate(invalid='ignore'):\n            tracking.singleaxis(self.solar_position.apparent_zenith,\n                                self.solar_position.azimuth,\n                                axis_tilt=0,\n                                axis_azimuth=0,\n                                max_angle=60,\n                                backtrack=True,\n                                gcr=0.45)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.lat = 35.1\n        self.lon = -106.6\n        self.solar_position = solarposition.get_solarposition(self.times,\n                                                              self.lat,\n                                                              self.lon)\n        self.tracker = tracking.SingleAxisTracker()",
+    "solarposition.SolarPosition.time_spa_python": {
+        "code": "class SolarPosition:\n    def time_spa_python(self):\n        solarposition.spa_python(self.times_localized[::5], self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
         "min_run_count": 2,
-        "name": "tracking.TimeSuite.time_singleaxis",
+        "name": "solarposition.SolarPosition.time_spa_python",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -284,13 +284,13 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "920c93b8db310d5d167270dad8d64d445c40ec141868c5d9cffd1ef988e65e3e",
+        "version": "4cb2ce95c016797a4f014a0bf5ff518b8e3fadab6f5dc07f9added8148ee9944",
         "warmup_time": -1
     },
-    "tracking.TimeSuite.time_tracker_singleaxis": {
-        "code": "class TimeSuite:\n    def time_tracker_singleaxis(self):\n        with np.errstate(invalid='ignore'):\n            self.tracker.singleaxis(self.solar_position.apparent_zenith,\n                                    self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.lat = 35.1\n        self.lon = -106.6\n        self.solar_position = solarposition.get_solarposition(self.times,\n                                                              self.lat,\n                                                              self.lon)\n        self.tracker = tracking.SingleAxisTracker()",
+    "solarposition.SolarPosition.time_sun_rise_set_transit_spa": {
+        "code": "class SolarPosition:\n    def time_sun_rise_set_transit_spa(self):\n        sun_rise_set_transit_spa(self.times_localized[::30],\n                                 self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
         "min_run_count": 2,
-        "name": "tracking.TimeSuite.time_tracker_singleaxis",
+        "name": "solarposition.SolarPosition.time_sun_rise_set_transit_spa",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -300,7 +300,87 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "4c44d4a1617113032d4ae5a877846a00e223ef30a3c648b7a3bc0cdad8ac2e57",
+        "version": "2d03d4c72e698480476fb0ed269717097692d8a87fb90142e807b2d1df72b572",
+        "warmup_time": -1
+    },
+    "temperature.Fuentes.time_fuentes": {
+        "code": "class Fuentes:\n    def time_fuentes(self):\n        pvlib.temperature.fuentes(self.poa, self.tamb, self.wind_speed,\n                                  noct_installed=45)\n\n    def setup(self):\n        if parse_version(pvlib.__version__) < parse_version('0.8.0'):\n            raise NotImplementedError\n    \n        set_weather_data(self)",
+        "min_run_count": 2,
+        "name": "temperature.Fuentes.time_fuentes",
+        "number": 0,
+        "param_names": [
+            "param1"
+        ],
+        "params": [
+            [
+                "'a'",
+                "'b'",
+                "'deltaT'"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "d11c7010997b69643e2f8e0a1c1dd5f6fa7d1224785430cd45e5a4fcb739b7a9",
+        "warmup_time": -1
+    },
+    "temperature.SAPM.time_sapm_cell": {
+        "code": "class SAPM:\n    def time_sapm_cell(self):\n        # use version-appropriate wrapper\n        sapm_cell(self.poa, self.tamb, self.windspeed)\n\n    def setup(self):\n        set_weather_data(self)",
+        "min_run_count": 2,
+        "name": "temperature.SAPM.time_sapm_cell",
+        "number": 0,
+        "param_names": [
+            "param1"
+        ],
+        "params": [
+            [
+                "'a'",
+                "'b'",
+                "'deltaT'"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "bc0a1ab5b2493350e91524e3354aa036fa21a6da196bc39c75f1baa9b323c9f9",
+        "warmup_time": -1
+    },
+    "tracking.SingleAxis.time_singleaxis": {
+        "code": "class SingleAxis:\n    def time_singleaxis(self):\n        with np.errstate(invalid='ignore'):\n            tracking.singleaxis(self.solar_position.apparent_zenith,\n                                self.solar_position.azimuth,\n                                axis_tilt=0,\n                                axis_azimuth=0,\n                                max_angle=60,\n                                backtrack=True,\n                                gcr=0.45)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.lat = 35.1\n        self.lon = -106.6\n        self.solar_position = solarposition.get_solarposition(self.times,\n                                                              self.lat,\n                                                              self.lon)\n        self.tracker = tracking.SingleAxisTracker()",
+        "min_run_count": 2,
+        "name": "tracking.SingleAxis.time_singleaxis",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "dd061389475eeff409e1f14be144c72be79e70b3db459934d93d08c80295e9b8",
+        "warmup_time": -1
+    },
+    "tracking.SingleAxis.time_tracker_singleaxis": {
+        "code": "class SingleAxis:\n    def time_tracker_singleaxis(self):\n        with np.errstate(invalid='ignore'):\n            self.tracker.singleaxis(self.solar_position.apparent_zenith,\n                                    self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.lat = 35.1\n        self.lon = -106.6\n        self.solar_position = solarposition.get_solarposition(self.times,\n                                                              self.lat,\n                                                              self.lon)\n        self.tracker = tracking.SingleAxisTracker()",
+        "min_run_count": 2,
+        "name": "tracking.SingleAxis.time_tracker_singleaxis",
+        "number": 0,
+        "param_names": [],
+        "params": [],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "86c596efbc29c9d2a17371488e5b1e64dc8797c6428625c843ed4b594d43d117",
         "warmup_time": -1
     },
     "version": 2
