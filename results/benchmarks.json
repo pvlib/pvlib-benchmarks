@@ -16,7 +16,7 @@
         "warmup_time": -1
     },
     "irradiance.Irradiance.time_aoi_projection": {
-        "code": "class Irradiance:\n    def time_aoi_projection(self):\n        irradiance.aoi(self.tilt, self.azimuth,\n                       self.solar_position.apparent_zenith,\n                       self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
+        "code": "class Irradiance:\n    def time_aoi_projection(self):\n        irradiance.aoi_projection(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
         "name": "irradiance.Irradiance.time_aoi_projection",
         "number": 0,
@@ -28,7 +28,7 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "690a2ec2cd12de23d1caa11032f4e1d395f3437aacf1da197333a6a414ef7abf",
+        "version": "1179c06295d1973a6d7b937f1819bf42853e6483a7416a33ae61136345ce57fb",
         "warmup_time": -1
     },
     "irradiance.Irradiance.time_dirindex": {
@@ -308,16 +308,8 @@
         "min_run_count": 2,
         "name": "temperature.Fuentes.time_fuentes",
         "number": 0,
-        "param_names": [
-            "param1"
-        ],
-        "params": [
-            [
-                "'a'",
-                "'b'",
-                "'deltaT'"
-            ]
-        ],
+        "param_names": [],
+        "params": [],
         "processes": 2,
         "repeat": 0,
         "sample_time": 0.01,
@@ -328,27 +320,19 @@
         "warmup_time": -1
     },
     "temperature.SAPM.time_sapm_cell": {
-        "code": "class SAPM:\n    def time_sapm_cell(self):\n        # use version-appropriate wrapper\n        sapm_cell(self.poa, self.tamb, self.windspeed)\n\n    def setup(self):\n        set_weather_data(self)",
+        "code": "class SAPM:\n    def time_sapm_cell(self):\n        # use version-appropriate wrapper\n        self.sapm_cell_wrapper(self.poa, self.tamb, self.windspeed)\n\n    def setup(self):\n        set_weather_data(self)\n        if parse_version(pvlib.__version__) >= parse_version('0.7.0'):\n            kwargs = pvlib.temperature.TEMPERATURE_MODEL_PARAMETERS['sapm']\n            kwargs = kwargs['open_rack_glass_glass']\n            self.sapm_cell_wrapper = partial(pvlib.temperature.sapm_cell,\n                                             **kwargs)\n        else:\n            sapm_celltemp = pvlib.pvsystem.sapm_celltemp\n    \n            def sapm_cell_wrapper(poa_global, temp_air, wind_speed):\n                # just swap order; model params are provided by default\n                return sapm_celltemp(poa_global, wind_speed, temp_air)\n            self.sapm_cell_wrapper = sapm_cell_wrapper",
         "min_run_count": 2,
         "name": "temperature.SAPM.time_sapm_cell",
         "number": 0,
-        "param_names": [
-            "param1"
-        ],
-        "params": [
-            [
-                "'a'",
-                "'b'",
-                "'deltaT'"
-            ]
-        ],
+        "param_names": [],
+        "params": [],
         "processes": 2,
         "repeat": 0,
         "sample_time": 0.01,
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "bc0a1ab5b2493350e91524e3354aa036fa21a6da196bc39c75f1baa9b323c9f9",
+        "version": "acc8a55ca77ab2a009ee61443a917406b44c00d27891bff929378731e640e46b",
         "warmup_time": -1
     },
     "tracking.SingleAxis.time_singleaxis": {
