@@ -1,9 +1,13 @@
 #!/bin/bash
 
+set -e
+
+# conda functions aren't exported to subshells by default
+source /var/home/pvlib/miniconda3/etc/profile.d/conda.sh
 conda activate pvlib-asv
 
 # The directory containing the pvlib-python and pvlib-benchmarks repos
-ROOTDIR='~'
+ROOTDIR=~
 
 # fetch any new commits on origin/master
 cd $ROOTDIR/pvlib-python
@@ -22,7 +26,8 @@ cp $ROOTDIR/pvlib-python/benchmarks/asv.conf.json ./asv.conf.json
 
 # custom settings -- overwrite the location of the benchmarks since we
 # are running from another directory
-sed -i '/benchmark_dir/c\    \"benchmark_dir\": \"../pvlib-python/benchmarks/benchmarks\",' asv.conf.json
+sed -i '/\"repo\":/c\    \"repo\": \"../pvlib-python\",' asv.conf.json
+sed -i '/\"benchmark_dir\":/c\    \"benchmark_dir\": \"../pvlib-python/benchmarks/benchmarks\",' asv.conf.json
 
 MACHINE=`python -c "from asv.machine import Machine; print(Machine.load('.asv-machine.json').machine)"`
 
