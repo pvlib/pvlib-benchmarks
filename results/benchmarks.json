@@ -224,73 +224,201 @@
         "warmup_time": -1
     },
     "solarposition.SolarPosition.time_ephemeris": {
-        "code": "class SolarPosition:\n    def time_ephemeris(self):\n        solarposition.ephemeris(self.times, self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+        "code": "class SolarPosition:\n    def time_ephemeris(self, ndays):\n        solarposition.ephemeris(self.times, self.lat, self.lon)\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
         "min_run_count": 2,
         "name": "solarposition.SolarPosition.time_ephemeris",
         "number": 0,
-        "param_names": [],
-        "params": [],
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
         "processes": 2,
         "repeat": 0,
         "sample_time": 0.01,
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "9e3f6f6b1f8e738855fea908c98dc18e5f77924ee4017e020e52143c1b999c8d",
+        "version": "0cec9f456e0b3afe25b1276c4b65f031aeefcb946be1f1799e5464be56858d31",
         "warmup_time": -1
     },
     "solarposition.SolarPosition.time_ephemeris_localized": {
-        "code": "class SolarPosition:\n    def time_ephemeris_localized(self):\n        solarposition.ephemeris(self.times_localized, self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+        "code": "class SolarPosition:\n    def time_ephemeris_localized(self, ndays):\n        solarposition.ephemeris(self.times_localized, self.lat, self.lon)\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
         "min_run_count": 2,
         "name": "solarposition.SolarPosition.time_ephemeris_localized",
         "number": 0,
-        "param_names": [],
-        "params": [],
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
         "processes": 2,
         "repeat": 0,
         "sample_time": 0.01,
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "1b9a3b8eafa1f70b219ba2f297c9d3c5fdef7e30c485a57d8fa4d211ad419b2e",
+        "version": "30e784c9a8816a832a26c8830346bece1998377e52c35f1067868c72c950ff90",
         "warmup_time": -1
     },
     "solarposition.SolarPosition.time_nrel_earthsun_distance": {
-        "code": "class SolarPosition:\n    def time_nrel_earthsun_distance(self):\n        solarposition.nrel_earthsun_distance(self.times_localized)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+        "code": "class SolarPosition:\n    def time_nrel_earthsun_distance(self, ndays):\n        solarposition.nrel_earthsun_distance(self.times_localized)\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
         "min_run_count": 2,
         "name": "solarposition.SolarPosition.time_nrel_earthsun_distance",
         "number": 0,
-        "param_names": [],
-        "params": [],
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
         "processes": 2,
         "repeat": 0,
         "sample_time": 0.01,
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "b28d26f20b6616c96c64fa36988745a4e24f3002beffec86aa05888320cc0ee0",
+        "version": "db907059fae0b75e926efdd158ab7ccf7c84b88bc15dd9d72e71b3175c4001a7",
+        "warmup_time": -1
+    },
+    "solarposition.SolarPosition.time_pyephem": {
+        "code": "class SolarPosition:\n    def time_pyephem(self, ndays):\n        solarposition.pyephem(self.times_localized, self.lat, self.lon)\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
+        "min_run_count": 2,
+        "name": "solarposition.SolarPosition.time_pyephem",
+        "number": 0,
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "9ab40ad95317886f9eecea0edeb53440b28a61fcd44695e75c91c8668dce2178",
         "warmup_time": -1
     },
     "solarposition.SolarPosition.time_spa_python": {
-        "code": "class SolarPosition:\n    def time_spa_python(self):\n        solarposition.spa_python(self.times_localized[::5], self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+        "code": "class SolarPosition:\n    def time_spa_python(self, ndays):\n        solarposition.spa_python(self.times_localized, self.lat, self.lon)\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
         "min_run_count": 2,
         "name": "solarposition.SolarPosition.time_spa_python",
         "number": 0,
-        "param_names": [],
-        "params": [],
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
         "processes": 2,
         "repeat": 0,
         "sample_time": 0.01,
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "4cb2ce95c016797a4f014a0bf5ff518b8e3fadab6f5dc07f9added8148ee9944",
+        "version": "5d07d0c0038c41e33e78a17a879744fb49a68efe59361510c4b669494bb4c0c4",
+        "warmup_time": -1
+    },
+    "solarposition.SolarPosition.time_sun_rise_set_transit_ephem": {
+        "code": "class SolarPosition:\n    def time_sun_rise_set_transit_ephem(self, ndays):\n        solarposition.sun_rise_set_transit_ephem(\n            self.times_daily, self.lat, self.lon)\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
+        "min_run_count": 2,
+        "name": "solarposition.SolarPosition.time_sun_rise_set_transit_ephem",
+        "number": 0,
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "99f398265e26841b75fd9df0b30fd3c8bd88b14cf8b1d66096fef9fe5e25e2d2",
+        "warmup_time": -1
+    },
+    "solarposition.SolarPosition.time_sun_rise_set_transit_geometric_full_comparison": {
+        "code": "class SolarPosition:\n    def time_sun_rise_set_transit_geometric_full_comparison(self, ndays):\n        dayofyear = self.times_daily.dayofyear\n        declination = solarposition.declination_spencer71(dayofyear)\n        equation_of_time = solarposition.equation_of_time_spencer71(dayofyear)\n        solarposition.sun_rise_set_transit_geometric(\n            self.times_daily, self.lat, self.lon, declination,\n            equation_of_time)\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
+        "min_run_count": 2,
+        "name": "solarposition.SolarPosition.time_sun_rise_set_transit_geometric_full_comparison",
+        "number": 0,
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "4b80d659e148c36913bf6fdab24639ef07c08a0be5a3fb2d3ebd7fcae1d36dc2",
         "warmup_time": -1
     },
     "solarposition.SolarPosition.time_sun_rise_set_transit_spa": {
-        "code": "class SolarPosition:\n    def time_sun_rise_set_transit_spa(self):\n        sun_rise_set_transit_spa(self.times_localized[::30],\n                                 self.lat, self.lon)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6",
+        "code": "class SolarPosition:\n    def time_sun_rise_set_transit_spa(self, ndays):\n        sun_rise_set_transit_spa(self.times_daily, self.lat, self.lon)\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
         "min_run_count": 2,
         "name": "solarposition.SolarPosition.time_sun_rise_set_transit_spa",
+        "number": 0,
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "e92a184909f72b9f6c52cff5c8a8210c77f15c446b49bfe8bf05e9d55b67b120",
+        "warmup_time": -1
+    },
+    "solarposition.SolarPositionCalcTime.time_calc_time": {
+        "code": "class SolarPositionCalcTime:\n    def time_calc_time(self):\n        # datetime.datetime(2020, 9, 14, 13, 24, 13, 861913, tzinfo=<UTC>)\n        solarposition.calc_time(\n            self.start, self.end, self.lat, self.lon, self.attribute,\n            self.value\n        )\n\n    def setup(self):\n        # test calc_time for finding times at which sun is 3 degrees\n        # above the horizon.\n        # Tucson 2020-09-14 sunrise at 6:08 AM MST, 13:08 UTC\n        # according to google.\n        self.start = datetime.datetime(2020, 9, 14, 12)\n        self.end = datetime.datetime(2020, 9, 14, 15)\n        self.value = 0.05235987755982988\n        self.lat = 32.2\n        self.lon = -110.9\n        self.attribute = 'alt'",
+        "min_run_count": 2,
+        "name": "solarposition.SolarPositionCalcTime.time_calc_time",
         "number": 0,
         "param_names": [],
         "params": [],
@@ -300,7 +428,55 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "2d03d4c72e698480476fb0ed269717097692d8a87fb90142e807b2d1df72b572",
+        "version": "c16325f76cd89a97dbe18070b0d3676c8233f7699e616ec01b38eae741a1c9da",
+        "warmup_time": -1
+    },
+    "solarposition_numba.SolarPositionNumba.time_spa_python": {
+        "code": "class SolarPositionNumba:\n    def time_spa_python(self, ndays):\n        solarposition.spa_python(\n            self.times_localized, self.lat, self.lon, how='numba')\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
+        "min_run_count": 2,
+        "name": "solarposition_numba.SolarPositionNumba.time_spa_python",
+        "number": 0,
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "f5c6dac37e461d531e6ac48fbac036c230ded3021315d3d174969f538b57e8cf",
+        "warmup_time": -1
+    },
+    "solarposition_numba.SolarPositionNumba.time_sun_rise_set_transit_spa": {
+        "code": "class SolarPositionNumba:\n    def time_sun_rise_set_transit_spa(self, ndays):\n        sun_rise_set_transit_spa(\n            self.times_daily, self.lat, self.lon, how='numba')\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.times_localized = self.times.tz_localize('Etc/GMT+7')\n        self.lat = 35.1\n        self.lon = -106.6\n        self.times_daily = pd.date_range(\n            start='20180601', freq='24h', periods=ndays, tz='Etc/GMT+7')",
+        "min_run_count": 2,
+        "name": "solarposition_numba.SolarPositionNumba.time_sun_rise_set_transit_spa",
+        "number": 0,
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "bf3d5c1fd60630f6ceb96d3d56eb8d3a47afa69afe63d276a6382e2a43be6be4",
         "warmup_time": -1
     },
     "temperature.Fuentes.time_fuentes": {
@@ -320,7 +496,7 @@
         "warmup_time": -1
     },
     "temperature.SAPM.time_sapm_cell": {
-        "code": "class SAPM:\n    def time_sapm_cell(self):\n        # use version-appropriate wrapper\n        self.sapm_cell_wrapper(self.poa, self.tamb, self.windspeed)\n\n    def setup(self):\n        set_weather_data(self)\n        if parse_version(pvlib.__version__) >= parse_version('0.7.0'):\n            kwargs = pvlib.temperature.TEMPERATURE_MODEL_PARAMETERS['sapm']\n            kwargs = kwargs['open_rack_glass_glass']\n            self.sapm_cell_wrapper = partial(pvlib.temperature.sapm_cell,\n                                             **kwargs)\n        else:\n            sapm_celltemp = pvlib.pvsystem.sapm_celltemp\n    \n            def sapm_cell_wrapper(poa_global, temp_air, wind_speed):\n                # just swap order; model params are provided by default\n                return sapm_celltemp(poa_global, wind_speed, temp_air)\n            self.sapm_cell_wrapper = sapm_cell_wrapper",
+        "code": "class SAPM:\n    def time_sapm_cell(self):\n        # use version-appropriate wrapper\n        self.sapm_cell_wrapper(self.poa, self.tamb, self.wind_speed)\n\n    def setup(self):\n        set_weather_data(self)\n        if parse_version(pvlib.__version__) >= parse_version('0.7.0'):\n            kwargs = pvlib.temperature.TEMPERATURE_MODEL_PARAMETERS['sapm']\n            kwargs = kwargs['open_rack_glass_glass']\n            self.sapm_cell_wrapper = partial(pvlib.temperature.sapm_cell,\n                                             **kwargs)\n        else:\n            sapm_celltemp = pvlib.pvsystem.sapm_celltemp\n    \n            def sapm_cell_wrapper(poa_global, temp_air, wind_speed):\n                # just swap order; model params are provided by default\n                return sapm_celltemp(poa_global, wind_speed, temp_air)\n            self.sapm_cell_wrapper = sapm_cell_wrapper",
         "min_run_count": 2,
         "name": "temperature.SAPM.time_sapm_cell",
         "number": 0,
@@ -332,7 +508,7 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "acc8a55ca77ab2a009ee61443a917406b44c00d27891bff929378731e640e46b",
+        "version": "7e22d15880756cf3058aedd30ba06679400b754adfe65234a0e90dcca86b701b",
         "warmup_time": -1
     },
     "tracking.SingleAxis.time_singleaxis": {
