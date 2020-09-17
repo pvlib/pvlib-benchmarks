@@ -1,0 +1,9 @@
+[Unit]
+Description=pvlib benchmark job
+
+[Service]
+Type=oneshot
+# Double $ and % necessary for escaping
+# https://stackoverflow.com/questions/45999187/creating-filename-date-y-m-d-from-systemd-bash-inline-script
+ExecStart=/usr/bin/bash -c '/var/home/pvlib/pvlib-benchmarks/cronjob.sh > /var/home/pvlib/logs/pvlib-$$(date +%%Y-%%m-%%d_%%H%%M%%S).log 2>&1'
+

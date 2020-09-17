@@ -52,3 +52,7 @@ The benchmark timings are hosted on this repo's
 1) Finally, enable the nightly job in whatever job scheduler you are using. A
    suitable starting point for a crontab entry might be:
    - ```0 0 * * * $HOME/pvlib-benchmarks/cronjob.sh > $HOME/logs/`date +\%Y-\%m-\%d`-cron.log 2>&1```
+   If using systemd units, copy the files `pvlib_benchmarks.service` and `pvlib_benchmarks.timer`
+   files to the `~/.config/systemd/user/` directory (create it if needed). Then
+   enable the service with e.g. `systemctl --user daemon-reload`. You can check
+   service status with `systemctl --user list-timers` and view errors with `journalctl -xe`.

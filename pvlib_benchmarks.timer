@@ -1,0 +1,7 @@
+[Unit]
+Description=pvlib benchmark timer
+
+[Timer]
+# every day at midnight UTC
+OnCalendar=*-*-* 00:00:00
+
