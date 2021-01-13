@@ -5,3 +5,5 @@ Description=pvlib benchmark timer
 # every day at midnight UTC
 OnCalendar=*-*-* 00:00:00
 
+[Install]
+WantedBy=timers.target
