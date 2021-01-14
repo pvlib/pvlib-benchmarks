@@ -1,4 +1,28 @@
 {
+    "detect_clearsky.DetectClear.time_detect_clearsky": {
+        "code": "class DetectClear:\n    def time_detect_clearsky(self, ndays):\n        clearsky.detect_clearsky(\n            self.measured, self.clearsky, self.times, self.window_length\n        )\n\n    def setup(self, ndays):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=1440*ndays)\n        self.lat = 35.1\n        self.lon = -106.6\n        self.solar_position = solarposition.get_solarposition(\n            self.times, self.lat, self.lon)\n        clearsky_df = clearsky.simplified_solis(\n            self.solar_position['apparent_elevation'])\n        self.clearsky = clearsky_df['ghi']\n        measured_dni = clearsky_df['dni'].where(\n            (self.times.hour % 2).astype(bool), 0)\n        cos_zen = np.cos(np.deg2rad(self.solar_position['apparent_zenith']))\n        self.measured = measured_dni * cos_zen + clearsky_df['dhi']\n        self.measured *= 0.98\n        self.window_length = 10",
+        "min_run_count": 2,
+        "name": "detect_clearsky.DetectClear.time_detect_clearsky",
+        "number": 0,
+        "param_names": [
+            "ndays"
+        ],
+        "params": [
+            [
+                "1",
+                "10",
+                "100"
+            ]
+        ],
+        "processes": 2,
+        "repeat": 0,
+        "sample_time": 0.01,
+        "timeout": 60.0,
+        "type": "time",
+        "unit": "seconds",
+        "version": "9f702043d63e9ce5d26317636c1ed3c90232893763b91a1434757320dc70ad2f",
+        "warmup_time": -1
+    },
     "irradiance.Irradiance.time_aoi": {
         "code": "class Irradiance:\n    def time_aoi(self):\n        irradiance.aoi(self.tilt, self.azimuth,\n                       self.solar_position.apparent_zenith,\n                       self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.days = pd.date_range(start='20180601', freq='d', periods=30)\n        self.location = location.Location(40, -80)\n        self.solar_position = self.location.get_solarposition(self.times)\n        self.clearsky_irradiance = self.location.get_clearsky(self.times)\n        self.tilt = 20\n        self.azimuth = 180\n        self.aoi = irradiance.aoi(self.tilt, self.azimuth,\n                                  self.solar_position.apparent_zenith,\n                                  self.solar_position.azimuth)",
         "min_run_count": 2,
