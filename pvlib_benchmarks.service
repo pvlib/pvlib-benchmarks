@@ -1,9 +1,6 @@
 [Unit]
 Description=pvlib benchmark job
 
-[Install]
-WantedBy=multi-user.target
-
 [Service]
 Type=oneshot
 # Double $ and % necessary for escaping

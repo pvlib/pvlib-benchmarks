@@ -20,6 +20,8 @@ git pull origin master
 pip install .[all]
 
 cd $ROOTDIR/pvlib-benchmarks
+# fetch any remote updates first, so the `git push` later on doesn't fail
+git pull origin master
 
 # copy over the asv configuration from pvlib-python
 cp $ROOTDIR/pvlib-python/benchmarks/asv.conf.json ./asv.conf.json
