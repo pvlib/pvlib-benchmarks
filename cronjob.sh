@@ -9,12 +9,14 @@ conda activate pvlib-asv
 # The directory containing the pvlib-python and pvlib-benchmarks repos
 ROOTDIR=~
 
-# fetch any new commits on origin/master
+# fetch any new commits on origin/main
 cd $ROOTDIR/pvlib-python
-git checkout master
-git pull origin master
+git checkout main
+git pull origin main
+# also fetch new tags (needed to have correct version string in benchmarks)
+git fetch --all --tags
 
-# install master, not to benchmark it, but to supply whatever imports
+# install main, not to benchmark it, but to supply whatever imports
 # are needed to make the benchmark files importable during discovery.
 # this assumes that the benchmark files don't need anything besides pvlib[all].
 pip install .[all]
