@@ -600,7 +600,7 @@
         "warmup_time": -1
     },
     "tracking.SingleAxis.time_singleaxis": {
-        "code": "class SingleAxis:\n    def time_singleaxis(self):\n        with np.errstate(invalid='ignore'):\n            tracking.singleaxis(self.solar_position.apparent_zenith,\n                                self.solar_position.azimuth,\n                                axis_tilt=0,\n                                axis_azimuth=0,\n                                max_angle=60,\n                                backtrack=True,\n                                gcr=0.45)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.lat = 35.1\n        self.lon = -106.6\n        self.solar_position = solarposition.get_solarposition(self.times,\n                                                              self.lat,\n                                                              self.lon)\n        self.tracker = tracking.SingleAxisTracker()",
+        "code": "class SingleAxis:\n    def time_singleaxis(self):\n        with np.errstate(invalid='ignore'):\n            tracking.singleaxis(self.solar_position.apparent_zenith,\n                                self.solar_position.azimuth,\n                                axis_tilt=0,\n                                axis_azimuth=0,\n                                max_angle=60,\n                                backtrack=True,\n                                gcr=0.45)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.lat = 35.1\n        self.lon = -106.6\n        self.solar_position = solarposition.get_solarposition(self.times,\n                                                              self.lat,\n                                                              self.lon)",
         "min_run_count": 2,
         "name": "tracking.SingleAxis.time_singleaxis",
         "number": 0,
@@ -612,23 +612,7 @@
         "timeout": 60.0,
         "type": "time",
         "unit": "seconds",
-        "version": "dd061389475eeff409e1f14be144c72be79e70b3db459934d93d08c80295e9b8",
-        "warmup_time": -1
-    },
-    "tracking.SingleAxis.time_tracker_singleaxis": {
-        "code": "class SingleAxis:\n    def time_tracker_singleaxis(self):\n        with np.errstate(invalid='ignore'):\n            self.tracker.singleaxis(self.solar_position.apparent_zenith,\n                                    self.solar_position.azimuth)\n\n    def setup(self):\n        self.times = pd.date_range(start='20180601', freq='1min',\n                                   periods=14400)\n        self.lat = 35.1\n        self.lon = -106.6\n        self.solar_position = solarposition.get_solarposition(self.times,\n                                                              self.lat,\n                                                              self.lon)\n        self.tracker = tracking.SingleAxisTracker()",
-        "min_run_count": 2,
-        "name": "tracking.SingleAxis.time_tracker_singleaxis",
-        "number": 0,
-        "param_names": [],
-        "params": [],
-        "processes": 2,
-        "repeat": 0,
-        "sample_time": 0.01,
-        "timeout": 60.0,
-        "type": "time",
-        "unit": "seconds",
-        "version": "86c596efbc29c9d2a17371488e5b1e64dc8797c6428625c843ed4b594d43d117",
+        "version": "4068649442cab168c9782b3916d83b646d2ed0a0fde4bce138acc561f06a6f27",
         "warmup_time": -1
     },
     "version": 2
