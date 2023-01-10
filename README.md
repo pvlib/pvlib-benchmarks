@@ -2,7 +2,7 @@
 Benchmarking for [pvlib-python](https://github.com/pvlib/pvlib-python)
 
 The benchmark timings are hosted on this repo's
-[github pages](https://pvlib-benchmarker.github.io/pvlib-benchmarks/).
+[github pages](https://pvlib.github.io/pvlib-benchmarks/).
 
 ## Setting up a new nightly runner
 The following commands should be executed in a Anaconda Prompt:
@@ -13,7 +13,7 @@ The following commands should be executed in a Anaconda Prompt:
    - `git clone https://github.com/pvlib/pvlib-python.git`
 
 1) Clone this github repository:
-   - `git clone https://github.com/pvlib-benchmarker/pvlib-benchmarks.git`
+   - `git clone https://github.com/pvlib/pvlib-benchmarks.git`
 
 1) Create and activate a new conda environment:
    - `conda create -n pvlib-asv python=3.7`
@@ -34,7 +34,7 @@ The following commands should be executed in a Anaconda Prompt:
 
 1) Also configure the remote URL to use ssh so pushing results doesn't require
    you to enter your username/password:
-   - `git remote set-url origin git+ssh://git@github.com/pvlib-benchmarker/pvlib-benchmarks.git`
+   - `git remote set-url origin git+ssh://git@github.com/pvlib/pvlib-benchmarks.git`
 
 1) Create an ssh key, register it with `ssh-add ...`, and configure it with GitHub.
    This is so the nightly job can push to GitHub without needing the user to
